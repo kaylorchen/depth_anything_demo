@@ -1,0 +1,3 @@
+model_path: "../model/depth_anything_v2_vits.trt"
+image_path: "../model/depth02.jpg"
+input_size: 518
