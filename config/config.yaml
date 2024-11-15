@@ -1,3 +1,6 @@
-model_path: "../model/depth_anything_v2_vits.trt"
+#model_path: "../model/depth_anything_v2_vits_8_6.trt"
+#model_path: "../model/depth_anything_v2_vits.trt"
+#model_path: "../model/depth_anything_v2_vits-2.0.0.rknn"
+model_path: "../model/depth_anything_v2_vits-2.3.0.rknn"
 image_path: "../model/depth02.jpg"
 input_size: 518

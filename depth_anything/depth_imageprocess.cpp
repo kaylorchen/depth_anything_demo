@@ -13,8 +13,9 @@ DepthImageprocess::DepthImageprocess(const ai_framework::Engine &engine,
   for (const auto &kv : engine.get_input_tensor_shape()) {
     input_shape_.push_back(kv.second);
 #ifdef RK3588
-    input_width_equal_stride_.push_back(config.with_equal_stride.at(kv.first));
-    input_stride_.push_back(config.stride.at(kv.first));
+    input_width_equal_stride_.push_back(
+        engine.get_width_equal_stride().at(kv.first));
+    input_stride_.push_back(engine.get_stride().at(kv.first));
 #endif
   }
   for (const auto &kv : engine.get_output_tensor_shape()) {

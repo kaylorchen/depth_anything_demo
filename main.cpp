@@ -10,7 +10,11 @@ int main(int argc, char **argv) {
   auto image_path = config["image_path"].as<std::string>();
   auto input_size = config["input_size"].as<int>();
   KAYLORDUT_LOG_INFO("model_path: {}\n image_path: {}", model_path, image_path);
+#ifdef RK3588
+  ai_framework::Engine engine(ModelFormat::RKNN_FORMAT, model_path.c_str());
+#elif TRT
   ai_framework::Engine engine(ModelFormat::TRT_FORMAT, model_path.c_str());
+#endif
   DepthImageprocess depth_imageprocess(engine, input_size, {0.485, 0.456, 0.406},
                                        {0.229, 0.224, 0.225});
     std::vector<cv::Mat> input(1);
